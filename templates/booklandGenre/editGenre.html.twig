@@ -13,17 +13,17 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">NAME</th>
-
+                <th scope="col">Auteurs</th>
                 <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-            {% for genre in genre %}
+            {% for key, genre in genre %}
                 <tr>
                     <th scope="row">{{genre.id}}</th>
 
                     <td><a href="{{ path('bookland_showGenre', {id: genre.id}) }}">{{genre.nom}}</a></td>
-
+                    <th scope="row">{% for auteur in auteurs[key] %}{{ auteur.nomPrenom }},{% endfor %}</th>
                     <td>
                         <div class="d-grid gap-2 d-md-block">
                             <a href="{{ path('bookland_modifierGenre', {id: genre.id}) }}"><button class="btn btn-primary" type="button">Modifier</button></a>

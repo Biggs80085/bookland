@@ -30,6 +30,7 @@ class GenreRepository extends ServiceEntityRepository
                 $flag++;
             }
         }
+
         }
 
         return $query->getQuery()->getResult();
@@ -64,6 +65,15 @@ class GenreRepository extends ServiceEntityRepository
             ->setParameter('id', $genre->getId());
 
         return $query->getQuery()->getResult();
+    }
+
+    public function findGSAuteurs(){
+        $array = $this->findAll();
+        $result = array();
+        foreach ($array as $genre){
+            array_push($result, $this->findGAuteurs($genre));
+        }
+        return $result;
     }
     // /**
     //  * @return Genre[] Returns an array of Genre objects

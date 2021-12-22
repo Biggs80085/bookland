@@ -71,31 +71,11 @@ class LivreController extends AbstractController{
 
     public function editLivre(Request $request){
         $livreSearch = new LivreSearch();
-        $test = array();
-        $flag = false;
-        $form = $this->createForm(LivreSearchType::class, $livreSearch);
 
+        $form = $this->createForm(LivreSearchType::class, $livreSearch);
         $form->handleRequest($request);
 
-
         $livreSearch = $this->repo->findLivre($livreSearch);
-        array_push($test, $livreSearch[0]->getAuteurs()->get(0));
-        dump($livreSearch[0]);
-        foreach ($livreSearch as $l){
-            foreach($l->getAuteurs() as $a) {
-
-                foreach ($test as $t) {
-                    if ($a->getNationalite() === $t->getNationalite())
-                        $flag = true;
-                }
-                if($flag)
-                    array_push($test, $a);
-            }
-            $flag=false;
-
-
-
-        }
 
         return $this->render('booklandLivre/editLivre.html.twig', array('monFormulaire'=> $form->createView(),'livre'=> $livreSearch));
     }

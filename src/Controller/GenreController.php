@@ -78,7 +78,8 @@ class GenreController extends AbstractController {
         $form->handleRequest($request);
 
         $genreSearch = $this->repo->findGenre($genreSearch);
-        return $this->render('booklandGenre/editGenre.html.twig', array('monFormulaire'=> $form->createView(),'genre'=> $genreSearch));
+        return $this->render('booklandGenre/editGenre.html.twig', array('monFormulaire'=> $form->createView(),'genre'=> $genreSearch,
+                                                                            'auteurs' => $this->repo->findGSAuteurs()));
     }
 
     public function showGenre($id){
