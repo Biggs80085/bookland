@@ -1,3 +1,82 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+
+bookland_addAuteur:
+  path: /addAuteur
+  controller: App\Controller\AuteurController::addAuteur
+
+bookland_edit:
+  path: /edit
+  controller: App\Controller\AuteurController::edit
+
+bookland_modifierAuteur:
+  path: /modifierAuteur/{id}
+  controller: App\Controller\AuteurController::modifierAuteur
+  requirements:
+    id: \d+
+
+bookland_removeAuteur:
+  path: /removeAuteur/{id}
+  controller: App\Controller\AuteurController::removeAuteur
+  requirements:
+    id: \d+
+
+bookland_showAuteur:
+  path: /showAuteur/{id}
+  controller: App\Controller\AuteurController::showAuteur
+  requirements:
+    id: \d+
+
+bookland_addLivre:
+  path: /addLivre
+  controller: App\Controller\LivreController::addLivre
+
+bookland_editLivre:
+  path: /editLivre
+  controller: App\Controller\LivreController::editLivre
+
+bookland_modifierLivre:
+  path: /modifierLivre/{id}
+  controller: App\Controller\LivreController::modifierLivre
+  requirements:
+    id: \d+
+
+bookland_removeLivre:
+  path: /removeLivre/{id}
+  controller: App\Controller\LivreController::removeLivre
+  requirements:
+    id: \d+
+
+bookland_showLivre:
+  path: /showLivre/{id}
+  controller: App\Controller\LivreController::showLivre
+  requirements:
+    id: \d+
+
+bookland_addGenre:
+  path: /addGenre
+  controller: App\Controller\GenreController::addGenre
+
+bookland_editGenre:
+  path: /editGenre
+  controller: App\Controller\GenreController::editGenre
+
+bookland_modifierGenre:
+  path: /modifierGenre/{id}
+  controller: App\Controller\GenreController::modifierGenre
+  requirements:
+    id: \d+
+
+bookland_removeGenre:
+  path: /removeGenre/{id}
+  controller: App\Controller\GenreController::removeGenre
+  requirements:
+    id: \d+
+
+bookland_showGenre:
+  path: /showGenre/{id}
+  controller: App\Controller\GenreController::showGenre
+  requirements:
+    id: \d+

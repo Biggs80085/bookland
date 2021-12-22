@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="container mt-5">
+        <h1>Informations sur {{ genre.nom }}</h1>
+
+        <table class="table table-striped mt-5">
+            <tbody>
+
+            <tr>
+                <td>Nom</td>
+                <td>{{ genre.nom }}</td>
+            </tr>
+
+            <tr>
+                <td>Nombres de pages</td>
+                <td>{{ sum.0.sum  }}</td>
+            </tr>
+
+            <tr>
+                <td>Moyenne de pages</td>
+                <td>{{ moy.0.moy  }}</td>
+            </tr>
+            <tr>
+                <td>Auteurs</td>
+                <td>{% for auteur in auteur %}{{ auteur.nomPrenom }}, {% endfor %}</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

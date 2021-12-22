@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="container mt-5">
+        <div class="mt-5">
+            {{ form_start(monFormulaire) }}
+            {{ form_rest(monFormulaire) }}
+            <button class="btn btn-primary">search</button>
+            {{ form_end(monFormulaire) }}
+        </div>
+        <table class="table mt-5">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">NAME</th>
+                <th scope="col">Date de parution</th>
+                <th scope="col">Note</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for livre in livre %}
+                <tr>
+                    <th scope="row">{{livre.id}}</th>
+                    <td><a href="{{ path('bookland_showLivre', {id: livre.id}) }}">{{livre.titre}}</a></td>
+                    <td>{{livre.dateDeParution | date('d/m/Y')}}</td>
+                    <td>{{livre.note}}</td>
+                    <td>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a href="{{ path('bookland_modifierLivre', {id: livre.id}) }}"><button class="btn btn-primary" type="button">Modifier</button></a>
+                            <a href="{{ path('bookland_removeLivre', {id: livre.id}) }}"><button class="btn btn-primary" type="button">Supprimer</button></a>
+                        </div>
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="d-grid gap-2 d-md-block">
+            <a href="{{ path('bookland_addLivre') }}"><button class="btn btn-primary" type="button">Ajouter</button></a>
+        </div>
+    </div>
+
+{% endblock %}
